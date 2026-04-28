@@ -1,75 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            background-color: #BAD7E1;
-        }
-        .container_main{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 90vh;
-        }
-        .box1{max-width:100%;
-            height: 500px;width: 500px;
-            border: 1px solid black;
-           border-radius: 20px 0px 20px 0px ;
-           background-color: #619bb6;
-        }
-        .mypic{max-width: 100%;
-             height:300px;width: 500px;
-             border-radius: 20px 0px 0px 0px ;
-             margin-bottom: 10px;
-        }
-        .bt_g1{display: flex;
-        justify-content: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuflow</title>
+
+<style>
+body{
+    background-color: #BAD7E1;
+    margin:0;
+}
+
+.container_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+.box1{
+    height: 500px;
+    width: 500px;
+    border-radius: 20px 0px 20px 0px;
+    background-color: #619bb6;
+    overflow: hidden;
+}
+
+
+.mypic{
+    width: 100%;
+    height:300px;
+    object-fit: cover;
+}
+
+.imgs{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgs h2,
+.imgs h3{
+    position: absolute;
+    color: beige;
+    border:1px solid black;
+    border-radius:10px;
+    backdrop-filter:blur(10px);
+    padding:5px 10px;
+    font-size: 2rem;
+}
+
+
+.imgs h2{ top:40%; }
+.imgs h3{ top:60%; }
+
+
+.bt_g1,.bt_g2{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:20px;
+}
+
+button{
+    height:50px;
+    width:200px;
+    background-color: burlywood;
+    border:2px solid #39544b;
+    border-radius:10px;
+    font-size:1rem;
+    cursor:pointer;
+    transition-duration:0.5s;
+    font-weight: 600;
+}
+button:hover{
+    background-color: rgb(231, 217, 198);
+    border-color:black;
+    
+}
+
+.panel{
+    position: fixed;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    color:black;
+    padding: 30px;
+  scroll-behavior: smooth;
+    transition: 0.4s ease;
+     overflow-y: auto;
+}
+
+.panel::-webkit-scrollbar{
+    width:6px;
+    background-color: #619bb688;
+}
+
+.panel::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.637);
+    border-radius: 10px;
+}
+
+.leftPanel{
+    left: -300px;  
+    opacity: 0%; 
+}
+
+.leftPanel.show{
+    left: 0;   
+    opacity: 100%;     
+}
+
+
+
+.rightPanel{
+    right: -300px;
+    opacity: 0%; 
+}
+
+.rightPanel.show{
+    right: 0;  
+    opacity:100%;     
+}
+.close{
+    cursor:pointer;
+    background:#c89555;
+    width:30px;
+    height:30px;
+    display:flex;
     align-items:center;
-    gap: 50px;
-flex-direction: row;
-margin-bottom: 50px;}
+    justify-content:center;
+    border-radius:50%;
+    margin-bottom:10px;
+    border: 2px solid rgba(0, 0, 0, 0.747);
+    font-weight: 600;
+    font-size:2rem;
+    color: white;
+    
+}
+.close:hover{
+    transform: rotate(90deg);
+    transition: 0.3s;
+}
 
-.bt_g2{display: flex;
-        justify-content: center;
-    align-items:center;gap: 50px;
-flex-direction: row;}
+.section{
+    display: none;
+}
 
-         .bt1{height: 50px;width: 210px;max-width: 100%;
-            background-color:  burlywood ;
-       color:rgb(0, 0, 0);
-        border-color:#39544b;
-        border-radius: 10px;font-size: 1.2rem;
+.section.show{
+    display: block;
+}
+
+ .abt img{
+    width: 100%;
+max-width: 250px;
+height: 250px;
+
+border-radius: 15px;
+margin-bottom: 20px;
+
+
+
+
+}
+.abt{
+      display: flex;
+    gap: 12px;
+      background: rgba(255, 255, 255, 0.637);
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section p{
+    text-align: justify;
+}
+
+
+.sp_item{
+    display: flex;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.637);
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.sp_item img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.sp_item h3{
+    margin: 0;
+    color: rgb(90, 77, 5);
+    font-size: 1.5rem;
+}
+
+.sp_item p{
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+
+
+.menu_item{
+    display: flex;
+    gap: 12px;
+    background:rgba(255, 255, 255, 0.637);
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+
+.menu_item img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+
+.menu_item h3{
+    margin: 0;
+    font-size:1.5rem;
+    color: rgb(90, 77, 5);
+}
+
+.menu_item p{
+    margin: 4px 0;
+    font-size: 0.85rem;
+}
+
+
+.menu_item span{
+    font-weight: bold;
+    color:rgb(76, 76, 160);
+}
+
+
+.contact_item{
+      background:rgba(255, 255, 255, 0.637);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border-left: 3px solid gold;
+}
+
+.contact_item h3{
+    margin: 0;
+    font-size:1.5rem;
+    color:rgb(90, 77, 5);
+}
+
+.contact_item p{
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.contact_item a{
+    text-decoration: none;
+    color:black;
+    transition:0.5s;
+    font-size:1.5rem;
+    
+}
+a:hover{
+    color:rgba(0, 0, 0, 0.582);
+
+}
+                                                /* mobile view 600px */
+
+@media (max-width:600px){
+
+    .box1{
+        width: 95%;
+        height: auto;
     }
-          .bt2{height: 50px;width: 210px;max-width: 100%;
-        background-color:  burlywood ;
-       color:rgb(0, 0, 0);
-        border-color:#39544b;
-        border-radius: 10px;font-size: 1.2rem;}
+
+    .mypic{
+        height: 200px;
+    }
+
+    .imgs h2,
+    .imgs h3{
+        font-size: 1.2rem;
+        padding: 3px 6px;
+    }
+
+    .bt_g1, .bt_g2{
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    button{
+        width: 90%;
+        height: 45px;
+        font-size: 0.9rem;
+    }
 
     
-        
-    </style>
-</head>
-<body>
-     <div class="container_main">
-        <div class="box1">
-            <div class="imgs">
-             <img src="wood2.webp" alt="my works logo" class="mypic">
-            </div>
-            <div class="bt_g1">
-            <button class="bt1">ABOUT US</button>
-            <button class="bt1">MENU</button>
-            </div>
-             <div class="bt_g2">
-             <button class="bt2">RESERVATION/BOOK A TABLE</button>
-            <button class="bt2">CONTACT</button>
+    .panel{
+        width: 100%;
+        height: 100vh;
+        padding: 15px;
+    }
 
-           
-            </div>
+    .leftPanel{
+        left: -100%;
+    }
+
+    .rightPanel{
+        right: -100%;
+    }
+
+    .leftPanel.show{
+        left: 0;
+    }
+
+    .rightPanel.show{
+        right: 0;
+    }
+
+    .menu_item,
+    .sp_item{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu_item img,
+    .sp_item img{
+        width: 100%;
+        height: 150px;
+    }
+
+    .menu_item h3,
+    .sp_item h3{
+        font-size: 1.1rem;
+    }
+}
+                                                            /* tab 768px */
+
+@media (max-width:768px){
+
+    .box1{
+        width: 90%;
+        height: auto;
+    }
+
+    .mypic{
+        height: 250px;
+    }
+
+    .imgs h2,
+    .imgs h3{
+        font-size: 1.5rem;
+    }
+
+    .bt_g1, .bt_g2{
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    button{
+        width: 45%;
+    }
+
+    .panel{
+        width: 70%;
+    }
+
+    .leftPanel{
+        left: -70%;
+    }
+
+    .rightPanel{
+        right: -70%;
+    }
+
+    .menu_item img,
+    .sp_item img{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+                                                     /* dest 1024px */
+
+@media (min-width:1024px){
+
+    .box1{
+        width: 500px;
+        height: 500px;
+    }
+
+    .panel{
+        width: 300px;
+    }
+}
+
+
+
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+<div class="container_main">
+
+    <div class="box1">
+        <div class="imgs">
+            <img src="bg for flow.png" class="mypic">
+            <h2>Guru Restaurant</h2>
+            <h3>Welcome</h3>
         </div>
-     </div>
+
+        <div class="bt_g1">
+            <button onclick="openPanel('left','about')">ABOUT</button>
+            <button onclick="openPanel('right','menu')">MENU</button>
+        </div>
+
+        <div class="bt_g2">
+            <button onclick="openPanel('left','special')">SPECIALS</button>
+            <button onclick="openPanel('right','contact')">CONTACT</button>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="panel leftPanel" id="panel">
+    
+ <div class="close" onclick="closePanel()">&times;</div>
+
+    <div id="about" class="section">
+        <h2>About Us</h2>
+         <div class="abt">
+        <p>&#9733;Welcome to our restaurant, where luxury meets exceptional taste. We offer
+             a fine dining experience with expertly crafted dishes,
+              elegant ambiance, and world-class service.</p>
+
+        
+            <img src="out look.jpg" alt="img">
+
+            <img src="2ed 1.jpg" alt="img">
+               <p>&#9733;From a stunning exterior to a luxurious interior, we offer a complete and memorable dining experience.</p>
+             <img src="1st in.jpg" alt="img">
+             
+             <img src="2ed in.jpg" alt="img">
+             <p>&#9733;Our restaurant blends elegant design, warm ambiance, and exceptional dining into one unforgettable experience.</p>
+             <img src="4in.jpg" alt="img">
+             
+       </div>
+    </div>
+
+    <div id="special" class="section">
+    <h2>Chef's Signature Specials &#9733;</h2>
+
+    <div class="sp_item">
+        <img src="rest.jpg" alt="Truffle Risotto">
+        <div>
+            <h3>Truffle Infused Risotto</h3>
+            <p>Creamy arborio rice with black truffle and aged parmesan.</p>
+        </div>
+    </div>
+
+    <div class="sp_item">
+        <img src="sol.jpg" alt="Grilled Salmon">
+        <div>
+            <h3>Grilled Salmon Supreme</h3>
+            <p>Fresh salmon with lemon butter sauce and vegetables.</p>
+        </div>
+    </div>
+
+
+    <div class="sp_item">
+        <img src="cho.jpg" alt="Dessert">
+        <div>
+            <h3>Chocolate Souffle</h3>
+            <p>Light dessert with molten chocolate center.</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="menu" class="section">
+    <h2>Our Menu </h2>
+
+    <div class="menu_item">
+        <img src="food2.jpg" alt="Main Course">
+        <div>
+            <h3>Chicken Alfredo Pasta</h3>
+            <p>Creamy pasta with grilled chicken and parmesan.</p>
+            <span>₹1699</span>
+        </div>
+    </div>
+
+    <div class="menu_item">
+        <img src="food3.jpg" alt="Steak">
+        <div>
+            <h3>Grilled Steak</h3>
+            <p>Juicy steak served with vegetables and sauce.</p>
+            <span>₹1299</span>
+        </div>
+    </div>
+
+    <div class="menu_item">
+        <img src="food4.jpg" alt="Seafood">
+        <div>
+            <h3>Butter Garlic Prawns</h3>
+            <p>Fresh prawns cooked in garlic butter sauce.</p>
+            <span>₹999</span>
+        </div>
+    </div>
+
+    <div class="menu_item">
+        <img src="food5.jpg" alt="Dessert">
+        <div>
+            <h3>Chocolate Lava Cake</h3>
+            <p>Warm cake with rich molten chocolate inside.</p>
+            <span>₹799</span>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="contact" class="section">
+    <h2>Contact Us </h2>
+
+    <div class="contact_item">
+        <h3>Address</h3>
+        <p>123 Premium Street,Thanjavur, Tamil Nadu, India</p>
+    </div>
+
+    <div class="contact_item">
+        <h3>Phone</h3>
+        <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact_item">
+        <h3>Email</h3>
+        <p>info@gururestaurant.com</p>
+    </div>
+
+    <div class="contact_item">
+        <h3>Opening Hours</h3>
+        <p>Mon - Sun : 11:00 AM - 11:00 PM</p>
+    </div>
+
+    <div class="contact_item">
+        <h3>Follow Us</h3>
+        <p><a href="https://x.com/"><i class="bi bi-twitter-x"></i></a></p>
+         <p><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></p>
+          <p><a href="https://www.instagram.com/?hl=en"><i class="bi bi-instagram"></i></a></p>
+    </div>
+</div>
+
+</div>
+
+<script>
+function openPanel(side, id){
+    const panel = document.getElementById("panel");
+    const sections = document.querySelectorAll(".section");
+
+    
+    panel.classList.remove("leftPanel","rightPanel");
+
+    
+    if(side === "right"){
+        panel.classList.add("rightPanel");
+    } else {
+        panel.classList.add("leftPanel");
+    }
+
+   
+    panel.classList.add("show");
+
+    sections.forEach(sec => sec.classList.remove("show"));
+    document.getElementById(id).classList.add("show");
+}
+
+function closePanel(){
+    document.getElementById("panel").classList.remove("show");
+}
+
+</script>
+
 </body>
 </html>
