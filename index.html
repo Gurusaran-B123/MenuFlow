@@ -72,7 +72,7 @@ button{
     border-radius:10px;
     font-size:1rem;
     cursor:pointer;
-    transition-duration:0.5s;
+   transition: 0.1s ease; 
     font-weight: 600;
 }
 button:hover{
@@ -90,7 +90,7 @@ button:hover{
     color:black;
     padding: 30px;
   scroll-behavior: smooth;
-    transition: 0.4s ease;
+    transition: 0.15s ease;
      overflow-y: auto;
 }
 
@@ -161,10 +161,22 @@ height: 250px;
 
 border-radius: 15px;
 margin-bottom: 20px;
+transform: scale(0);
+
+  animation: cardIn linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+   
 
 
 
+}
 
+@keyframes cardIn {
+  to {
+    
+    transform: scale(1);
+  }
 }
 .abt{
       display: flex;
@@ -190,6 +202,9 @@ margin-bottom: 20px;
     margin-bottom: 12px;
     border-radius: 10px;
     align-items: center;
+
+   
+
 }
 
 .sp_item img{
@@ -222,7 +237,10 @@ margin-bottom: 20px;
     margin-bottom: 12px;
     border-radius: 10px;
     align-items: center;
+ 
 }
+
+
 
 
 .menu_item img{
@@ -258,6 +276,8 @@ margin-bottom: 20px;
     margin-bottom: 12px;
     border-radius: 10px;
     border-left: 3px solid gold;
+     
+   
 }
 
 .contact_item h3{
@@ -289,6 +309,7 @@ a:hover{
     .box1{
         width: 95%;
         height: auto;
+        padding-bottom: 10px;
     }
 
     .mypic{
@@ -322,18 +343,22 @@ a:hover{
     }
 
     .leftPanel{
+        opacity: 0%;
         left: -100%;
     }
 
     .rightPanel{
         right: -100%;
+        opacity: 0%;
     }
 
     .leftPanel.show{
+        opacity: 100%;
         left: 0;
     }
 
     .rightPanel.show{
+        opacity:100%;
         right: 0;
     }
 
@@ -341,7 +366,12 @@ a:hover{
     .sp_item{
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 30px;
     }
+
+   .contact_item{
+    margin-bottom: 30px;
+   }
 
     .menu_item img,
     .sp_item img{
@@ -361,6 +391,7 @@ a:hover{
     .box1{
         width: 90%;
         height: auto;
+        padding-bottom: 10px;
     }
 
     .mypic{
