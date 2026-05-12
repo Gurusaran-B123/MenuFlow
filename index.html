@@ -30,6 +30,8 @@ body{
     border-radius: 20px 0px 20px 0px;
     background-color: #619bb6;
     overflow: hidden;
+    border:8px  groove whitesmoke;
+    
 }
 
 .mypic{
@@ -554,46 +556,7 @@ a:hover{
 }
 
 
-#loader{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #BAD7E1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
 
-#loader h2{
-    color: #39544b;
-}
-
-
-.spinner{
-    width: 50px;
-    height: 50px;
-    border: 5px solid #fff;
-    border-top: 5px solid #39544b;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 10px;
-}
-
-@keyframes spin{
-    0%{ transform: rotate(0deg); }
-    100%{ transform: rotate(360deg); }
-}
-
-
-#loader.hide{
-    opacity: 0;
-    visibility: hidden;
-}
 
 </style>
 
@@ -610,16 +573,13 @@ a:hover{
 
 <body>
 
-    <div id="loader">
-    <div class="spinner"></div>
-    <h2>Loading...</h2>
-</div>
+  
 
 <div class="container_main">
 
     <div class="box1">
         <div class="imgs">
-            <img src="bg for flow.png" class="mypic">
+            <img src="bg for flow.png" class="mypic" decoding="async">
             <h2>Guru Restaurant</h2>
             <h3>Welcome</h3>
         </div>
@@ -650,24 +610,30 @@ a:hover{
               elegant ambiance, and world-class service.</p>
 
         
-            <img src="out look.jpg" alt="img">
+            <img src="out look.jpg" alt="img" loading="lazy"
+     decoding="async">
 
-            <img src="2ed 1.jpg" alt="img">
+            <img src="2ed 1.jpg" alt="img" loading="lazy"
+     decoding="async">
                <p>&#9733;From a stunning exterior to a luxurious interior, we offer a complete and memorable dining experience.</p>
-             <img src="1st in.jpg" alt="img">
+             <img src="1st in.jpg" alt="img" loading="lazy"
+     decoding="async">
              
-             <img src="2ed in.jpg" alt="img">
+             <img src="2ed in.jpg" alt="img" loading="lazy"
+     decoding="async">
              <p>&#9733;Our restaurant blends elegant design, warm ambiance, and exceptional dining into one unforgettable experience.</p>
-             <img src="4in.jpg" alt="img">
+             <img src="4in.jpg" alt="img" loading="lazy"
+     decoding="async">
              
        </div>
     </div>
 
-    <div id="special" class="section">
+    <div id="special" class="section" >
     <h2>Chef's Signature Specials &#9733;</h2>
 
     <div class="sp_item">
-        <img src="rest.jpg" alt="Truffle Risotto">
+        <img src="rest.jpg" alt="Truffle Risotto" loading="lazy"
+     decoding="async">
         <div>
             <h3>Truffle Infused Risotto</h3>
             <p>Creamy arborio rice with black truffle and aged parmesan.</p>
@@ -675,7 +641,8 @@ a:hover{
     </div>
 
     <div class="sp_item">
-        <img src="sol.jpg" alt="Grilled Salmon">
+        <img src="sol.jpg" alt="Grilled Salmon" loading="lazy"
+     decoding="async">
         <div>
             <h3>Grilled Salmon Supreme</h3>
             <p>Fresh salmon with lemon butter sauce and vegetables.</p>
@@ -684,7 +651,8 @@ a:hover{
 
 
     <div class="sp_item">
-        <img src="cho.jpg" alt="Dessert">
+        <img src="cho.jpg" alt="Dessert" loading="lazy"
+     decoding="async">
         <div>
             <h3>Chocolate Souffle</h3>
             <p>Light dessert with molten chocolate center.</p>
@@ -697,7 +665,8 @@ a:hover{
     <h2>Our Menu </h2>
 
     <div class="menu_item">
-        <img src="food2.jpg" alt="Main Course">
+        <img src="food2.jpg" alt="Main Course" loading="lazy"
+     decoding="async">
         <div>
             <h3>Chicken Alfredo Pasta</h3>
             <p>Creamy pasta with grilled chicken and parmesan.</p>
@@ -706,7 +675,8 @@ a:hover{
     </div>
 
     <div class="menu_item">
-        <img src="food3.jpg" alt="Steak">
+        <img src="food3.jpg" alt="Steak" loading="lazy"
+     decoding="async">
         <div>
             <h3>Grilled Steak</h3>
             <p>Juicy steak served with vegetables and sauce.</p>
@@ -715,7 +685,8 @@ a:hover{
     </div>
 
     <div class="menu_item">
-        <img src="food4.jpg" alt="Seafood">
+        <img src="food4.jpg" alt="Seafood" loading="lazy"
+     decoding="async">
         <div>
             <h3>Butter Garlic Prawns</h3>
             <p>Fresh prawns cooked in garlic butter sauce.</p>
@@ -724,7 +695,8 @@ a:hover{
     </div>
 
     <div class="menu_item">
-        <img src="food5.jpg" alt="Dessert">
+        <img src="food5.jpg" alt="Dessert" loading="lazy"
+     decoding="async">
         <div>
             <h3>Chocolate Lava Cake</h3>
             <p>Warm cake with rich molten chocolate inside.</p>
@@ -797,14 +769,7 @@ function closePanel(){
 }
 
 
-window.addEventListener("load", function(){
-    const loader = document.getElementById("loader");
 
-    setTimeout(() => {
-        loader.classList.add("hide");
-
-    },10); 
-});
 
 </script>
 
